@@ -10,19 +10,10 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 
 import { Module } from "./Module";
-import { Input } from "./Input";
 
 // import "./App.css";
 
-export default function Main() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Add tests to homepage" },
-    { id: 2, title: "Fix styling in about section" },
-    { id: 3, title: "Learn how to center a div" },
-  ]);
-  const addTask = (title) => {
-    setTasks((tasks) => [...tasks, { id: tasks.length + 1, title }]);
-  };
+export default function Main({ tasks, setTasks, addTask }) {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -47,8 +38,7 @@ export default function Main() {
 
   return (
     <>
-      <div className="App">
-        <Input onSubmit={addTask} />
+      <div className="App gap-1">
         <DndContext
           sensors={sensors}
           collisionDetection={closestCorners}

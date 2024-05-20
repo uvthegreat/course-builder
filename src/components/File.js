@@ -18,7 +18,7 @@ export const File = ({ id, title }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className="task"
+      className="task bg-slate-400"
     >
       {title}
     </div>
